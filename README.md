@@ -1,2 +1,0 @@
-# SiwProgetto
-Sito per Siw
