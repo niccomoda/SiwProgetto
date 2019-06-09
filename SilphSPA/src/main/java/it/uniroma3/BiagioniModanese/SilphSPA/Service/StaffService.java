@@ -1,6 +1,5 @@
 package it.uniroma3.BiagioniModanese.SilphSPA.Service;
 
-import java.util.List;
 
 import javax.transaction.Transactional;
 
