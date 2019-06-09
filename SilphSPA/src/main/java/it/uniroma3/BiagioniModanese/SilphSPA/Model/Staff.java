@@ -5,14 +5,14 @@ import javax.persistence.Entity;
 @Entity
 public class Staff {
 
-	private String user;
+	private String username;
 	private String password;
 	
 	public String getUser() {
-		return user;
+		return username;
 	}
 	public void setUser(String user) {
-		this.user = user;
+		this.username = user;
 	}
 	public String getPassword() {
 		return password;
