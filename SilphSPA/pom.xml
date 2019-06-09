@@ -13,7 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>SilphSPA</name>
-	<description>Project SliphSPA for Sistemi Operativi Su Web</description>
+	<description>Exam project for "Sistemi Informativi Su Web" A.A. 2018-2019</description>
 
 	<properties>
 		<java.version>1.8</java.version>
