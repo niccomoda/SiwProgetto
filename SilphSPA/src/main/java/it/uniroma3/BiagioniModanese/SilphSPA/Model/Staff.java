@@ -7,6 +7,7 @@ public class Staff {
 
 	private String user;
 	private String password;
+	
 	public String getUser() {
 		return user;
 	}
