@@ -20,5 +20,10 @@ public class StaffService {
 		
 	}
 	
+	@Transactional 
+	public Staff inserisci(Staff staff) {
+		return staffRepository.save(staff);
+	}
+	
 	
 }

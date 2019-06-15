@@ -42,9 +42,9 @@ public class StaffController {
 		}
 	}
 	
-	@RequestMapping(value = "/loginFrom")
+	@RequestMapping(value = "/loginForm")
 	public String loginForm(Model model) {
-		model.addAttribute("Staff", new Staff());
+		model.addAttribute("staff", new Staff());
 		return "login.html";
 	}
 	
