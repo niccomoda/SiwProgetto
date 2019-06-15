@@ -1,9 +1,5 @@
 package it.uniroma3.BiagioniModanese.SilphSPA.Model;
 
-import javax.persistence.Entity;
-
-
-@Entity
 public class FotoForm {
 	
 	private String nome;

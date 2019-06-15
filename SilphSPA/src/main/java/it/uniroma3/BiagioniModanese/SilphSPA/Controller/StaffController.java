@@ -35,7 +35,7 @@ public class StaffController {
 				return "login.html";
 			}
 			else {
-				return "successo.html";
+				return "admin.html";
 			}
 		
 		}

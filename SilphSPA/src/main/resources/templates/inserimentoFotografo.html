@@ -104,21 +104,17 @@
           
 
           <div class="row">
-            <div class="col-lg-8 mb-5">
-              <form action="#">
-               
-
+            <div class="col-lg-8 mb-5">             
                 <div class="row form-group">
-                <form th:action = "/inserisciFotografo" method = "POST" th:object = "${fotografo}">
+                <form th:action = "@{/inserisciFotografo}" method = "POST" th:object = "${fotografo}">
                   <div class="col-md-6 mb-3 mb-md-0">
                     <label class="text-black" for="fname">Nome</label><input type = "text" id = "nome" th:field = "*{nome}">
                     <div><p class = "error" th:if = "@{#fields.hasError('nome')}" th:errors = "*{nome}"></p>
-                    <input type="text" id="user" class="form-control">
+                  </div>
                   </div>
                   <div class="col-md-6">
-                    <label class="text-black" for="lname">Cognome</label><input type = "text" id = "cognome" th:field = "*{cognome}">
+                  <label class="text-black" for="lname">Cognome</label><input type = "text" id = "cognome" th:field = "*{cognome}">
                     <div><p class = "error" th:if = "@{#fields.hasError('cognome')}" th:errors = "*{cognome}"></p>
-                    <input type="text" id="lname" class="form-control">
                   </div>
                 </div>
 
@@ -128,8 +124,7 @@
                   <div class="col-md-12">
                    <input type="submit" value="Inserisci" class="btn btn-primary py-2 px-4 text-white">
                   </div>
-                </div>
-
+	</div>
     
               </form>
             </div>
@@ -137,6 +132,7 @@
               
             </div>
           </div>
+          
         </div>
     
       </div>

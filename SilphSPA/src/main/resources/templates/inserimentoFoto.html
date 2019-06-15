@@ -111,39 +111,27 @@
                
 
                 <div class="row form-group">
-                <form th:action = "/inserisciFoto" method = "POST" th:object = "${foto}">
+                <form th:action = "@{/inserisciFoto}" method = "POST" th:object = "${foto}">
                   <div class="col-md-6 mb-3 mb-md-0">
                     <label class="text-black" for="fname">Nome</label><input type = "text" id = "nome" th:field = "*{nome}">
                     <div><p class = "error" th:if = "@{#fields.hasError('nome')}" th:errors = "*{nome}"></p>
-                    <input type="text" id="user" class="form-control">
                   </div>
-                  <div class="col-md-6">
-                    <label class="text-black" for="lname">URL Foto</label><input type = "text" id = "uri" th:filed = "*{uri}">
+                  <div class="col-md-6 mb-3 mb-md-0">
+                    <label class="text-black" for="lname">URL</label><input type = "text" id = "uri" th:filed = "*{uri}">
                     <div><p class = "error" th:if = "@{#fields.hasError('uri')}" th:errors = "{*uri}"></div>
-                    <input type="text" id="lname" class="form-control">
                   </div>
                 </div>
 
-                <div class="row form-group">
-                  
-                </div>
-                <div class="row form-group">
                   <div class="col-md-6 mb-3 mb-md-0">
-                    <label class="text-black" for="fname">Id Fotografo</label><input type = "text" id = "idFotografo" th:field = "*{idFotografo}">
+                    <label class="text-black" for="fname">Id</label><input type = "text" id = "idFotografo" th:field = "*{idFotografo}">
                     <div><p class = "error" th:if = "@{#fields.hasError('idFotografo')}" th:errors = "*{idFotografo}"></p>
-                    <input type="text" id="user" class="form-control">
                   </div>
-                  <div class="col-md-6">
+                  
+                  <div class="col-md-6 mb-3 mb-md-0">
                     <label class="text-black" for="lname">Id Album</label><input type = "text" id = "idAlbum" th:field = "*{idAlbum}">
                     <div><p class = "error" th:if = "@{#fields.hasError('idAlbum')}" th:errors = "*{idAlbum}"></p>
-                    <input type="text" id="lname" class="form-control">
                   </div>
                 </div>
-                </div>
-                </div>
-
-                <div class="row form-group">
-                  
                 </div>
 
                   
