@@ -8,6 +8,7 @@ import com.vaadin.flow.component.polymertemplate.Id;
 
 @Entity
 public class Staff {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
