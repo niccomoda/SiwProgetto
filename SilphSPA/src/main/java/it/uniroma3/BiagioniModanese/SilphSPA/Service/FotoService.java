@@ -18,4 +18,5 @@ public class FotoService {
 	public Foto inserisci(Foto foto) {
 		return fotoRepository.save(foto);
 	}
+	
 }

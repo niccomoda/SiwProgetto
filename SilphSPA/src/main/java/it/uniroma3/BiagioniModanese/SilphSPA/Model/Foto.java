@@ -1,13 +1,11 @@
 package it.uniroma3.BiagioniModanese.SilphSPA.Model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+
 
 @Entity
 public class Foto {
@@ -19,8 +17,8 @@ public class Foto {
 	
 	private String uri;
 	
-	@ManyToMany(mappedBy="foto")
-	private List<Album> album;
+	@ManyToOne
+	private Album album;
 	
 	@ManyToOne
 	private Fotografo fotografo;
@@ -45,11 +43,11 @@ public class Foto {
 		this.uri = uri;
 	}
 
-	public List<Album> getAlbum() {
+	public Album getAlbum() {
 		return album;
 	}
 
-	public void setAlbum(List<Album> album) {
+	public void setAlbum(Album album) {
 		this.album = album;
 	}
 

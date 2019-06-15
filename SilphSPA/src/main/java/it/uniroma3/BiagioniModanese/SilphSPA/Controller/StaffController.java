@@ -1,4 +1,4 @@
-package it.uniroma3.BiagioniModanese.SilphSPA.Controller;
+ package it.uniroma3.BiagioniModanese.SilphSPA.Controller;
 
 import javax.validation.Valid;
 
@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import it.uniroma3.BiagioniModanese.SilphSPA.Model.Foto;
+import it.uniroma3.BiagioniModanese.SilphSPA.Model.Fotografo;
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.Staff;
 import it.uniroma3.BiagioniModanese.SilphSPA.Service.StaffService;
 import it.uniroma3.BiagioniModanese.SilphSPA.Service.StaffValidator;
@@ -41,12 +43,25 @@ public class StaffController {
 			return "login.html";
 		}
 	}
-	
+
 	@RequestMapping(value = "/loginForm")
 	public String loginForm(Model model) {
 		model.addAttribute("staff", new Staff());
 		return "login.html";
 	}
+	
+	@RequestMapping(value = "/inserimentoFoto")
+	public String inserimentoFoto(Model model) {
+		model.addAttribute("foto", new Foto());
+		return "inserimentoFoto.html";
+	}
+	
+	@RequestMapping(value = "/inserimenteFotografo")
+	public String inserimentoFotografo(Model model) {
+		model.addAttribute("fotografo", new Fotografo());
+		return "inserimentoFotografo.html";
+	}
+	
 	
 	
 }
