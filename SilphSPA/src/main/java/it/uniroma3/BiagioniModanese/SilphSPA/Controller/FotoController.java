@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.Foto;
+import it.uniroma3.BiagioniModanese.SilphSPA.Model.FotoForm;
 import it.uniroma3.BiagioniModanese.SilphSPA.Repository.FotoRepository;
 import it.uniroma3.BiagioniModanese.SilphSPA.Service.FotoService;
 import it.uniroma3.BiagioniModanese.SilphSPA.Service.FotoFormValidator;
