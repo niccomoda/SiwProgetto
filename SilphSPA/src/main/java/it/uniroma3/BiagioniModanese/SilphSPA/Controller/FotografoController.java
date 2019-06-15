@@ -1,5 +1,7 @@
 package it.uniroma3.BiagioniModanese.SilphSPA.Controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.Fotografo;
+import it.uniroma3.BiagioniModanese.SilphSPA.Model.StringaRicerca;
 import it.uniroma3.BiagioniModanese.SilphSPA.Service.FotografoService;
 import it.uniroma3.BiagioniModanese.SilphSPA.Service.FotografoValidator;
 
@@ -35,6 +38,49 @@ public class FotografoController {
 			return "inserimentoFotografo.html";
 		}
 	}
+	
+	@RequestMapping(value = "/fotografoNomeCognome")
+	public String cercaFotografoNomeCognome(Model model) {
+		model.addAttribute("stringaRicerca", new StringaRicerca());
+		return "ricercaFotografoNomeCognome";
+	}
+	
+	@RequestMapping(value = "/fotografoPerId")
+	public String cercaFotografoPerId(Model model) {
+		model.addAttribute("stringaRicerca", new StringaRicerca());
+		return "ricercaFotografoPerId";
+	}
+	
+	@RequestMapping(value = "/risultatiFotografoNomeCognome", method = RequestMethod.POST)
+	public String risultatiFotografoNomeCognome(@ModelAttribute("stringaRicerca") StringaRicerca s, Model model, BindingResult bindingResult) {
+		List<Fotografo> risultato;
+		if(s.getS1() == "" && s.getS2() == "") {
+			bindingResult.rejectValue("s1", "wrong");
+			return "ricercaFotografoNomeCognome.html";
+		}
+		else if(s.getS1() == "") {
+			risultato = this.fotografoService.trovaFotografoPerCognome(s.getS2());
+		}
+		else if(s.getS2() == "") {
+			risultato = this.fotografoService.trovaFotografoPerCognome(s.getS1());
+		}
+		else {
+			risultato = this.fotografoService.trovaFotografoPerNomeCognome(s.getS1(), s.getS2());
+		}
+		if(risultato.size() == 0) {
+			bindingResult.rejectValue("s1", "wrong");
+			return "ricercaFotografoNomeCognome.html";
+		}
+		else {
+			model.addAttribute("risultato", risultato);
+			return "listaFotografi.html";
+		}
+	}
+	
+	
+	
+	
+	
 	
 	
 
