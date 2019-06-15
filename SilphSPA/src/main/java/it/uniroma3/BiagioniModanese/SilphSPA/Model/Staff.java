@@ -3,8 +3,8 @@ package it.uniroma3.BiagioniModanese.SilphSPA.Model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-import com.vaadin.flow.component.polymertemplate.Id;
 
 @Entity
 public class Staff {
