@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th= "http://www.thymeleaf.org" xmlns="htttp://www.w3.org/1999/html">
   <head>
-    <title>Silph Admin &mdash;</title>
+    <title>Silph &mdash; Admin</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -111,11 +111,13 @@
                 <div class="row form-group">
                 <form th:action = "/inserisciAlbum" method = "POST" th:object = "${album}">
                   <div class="col-md-6 mb-3 mb-md-0">
-                    <label class="text-black" for="fname">Nome</label>
+                    <label class="text-black" for="fname">Nome</label><input type = "text" id = "nome" th:field = "*{nome}">
+                    <div><p class = "error" th:if = "@{#fields.hasError('nome')}" th:errors = "*{nome}"></p>
                     <input type="text" id="user" class="form-control">
                   </div>
                   <div class="col-md-6">
-                    <label class="text-black" for="lname">Id Album</label>
+                    <label class="text-black" for="lname">Id Album</label><input type = "text" id = "idAlbum" th:field = "*{idAlbum}">
+                    <div><p class = "error" th:if = "@{#fields.hasError('idAlbum')}" th:errors = "*{idAlbum}"></p>
                     <input type="text" id="lname" class="form-control">
                   </div>
                 </div>
