@@ -80,6 +80,8 @@
               </ul>
             </nav>
           </div>
+          </div>
+          </div>
 
       
     </header>
@@ -105,19 +107,24 @@
 
           <div class="row">
             <div class="col-lg-8 mb-5">
-              <form action="#">
+             
                
 
                 <div class="row form-group">
+                 <form th:action="@{/login}" method = "POST" th:object = "${staff}">
                   <div class="col-md-6 mb-3 mb-md-0">
-                    <label class="text-black" for="fname">Username</label>
-                    <input type="text" id="user" class="form-control">
+                    <label class="text-black" for="username">Username</label><input type = "text" id = "username" th:field = "*{username}">
+                    <div><p class = "error" th:if = "@{#fields.hasError('username')}" th:errors = "*{username}"></p>
+                    <input type="text" id="username" class="form-control">
                   </div>
                   <div class="col-md-6">
-                    <label class="text-black" for="lname">Password</label>
-                    <input type="text" id="lname" class="form-control">
+                    <label class="text-black" for="password">Password</label><input type = "text" id = "password" th:field = "*{password}">
+                    <div><p class = "error" th:if = "@{#fields.hasError('password')}" th:errors = "*{password}"></p>
+                    <input type="text" id="password" class="form-control">
                   </div>
                 </div>
+                </div>
+                
 
                 <div class="row form-group">
                   
