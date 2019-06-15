@@ -30,12 +30,12 @@ public class FotoController {
 		return "inserimentoFoto.html";
 	}
 	
-	@RequestMapping(value="/foto", method= RequestMethod.POST)
+	/*@RequestMapping(value="/foto", method= RequestMethod.POST)
 	public String newFoto(@Valid @ModelAttribute("foto") FotoForm fotoForm, Model model, BindingResult bindingResult) {
-		this.fotoValidator.validate(fotoForm, bindingResult);
+		this.fotoFormValidator.validate(fotoForm, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			
 		}
-	}
+	}*/
 	
 }

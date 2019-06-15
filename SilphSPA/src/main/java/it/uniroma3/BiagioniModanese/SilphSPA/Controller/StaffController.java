@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import it.uniroma3.BiagioniModanese.SilphSPA.Model.Foto;
+import it.uniroma3.BiagioniModanese.SilphSPA.Model.AlbumForm;
+import it.uniroma3.BiagioniModanese.SilphSPA.Model.FotoForm;
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.Fotografo;
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.Staff;
 import it.uniroma3.BiagioniModanese.SilphSPA.Service.StaffService;
@@ -40,7 +41,7 @@ public class StaffController {
 		
 		}
 		else {
-			return "login.html";
+			return "admin.html";
 		}
 	}
 
@@ -52,7 +53,7 @@ public class StaffController {
 	
 	@RequestMapping(value = "/inserimentoFoto")
 	public String inserimentoFoto(Model model) {
-		model.addAttribute("foto", new Foto());
+		model.addAttribute("fotoForm", new FotoForm());
 		return "inserimentoFoto.html";
 	}
 	
@@ -60,6 +61,12 @@ public class StaffController {
 	public String inserimentoFotografo(Model model) {
 		model.addAttribute("fotografo", new Fotografo());
 		return "inserimentoFotografo.html";
+	}
+	
+	@RequestMapping(value = "/inserimentoAlbum")
+	public String inserimentoAlbum(Model model) {
+		model.addAttribute("albumForm", new AlbumForm());
+		return "inserimentoAlbum.html";
 	}
 	
 	
