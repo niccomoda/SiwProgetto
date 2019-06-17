@@ -99,6 +99,11 @@ public class StaffController {
 		return "ricerca.html";
 	}
 	
+	@RequestMapping(value = "/ricercaFotografo")
+	public String ricercaFotografo() {
+		return "ricercafotografo.html";
+	}
+	
 	
 	
 }
