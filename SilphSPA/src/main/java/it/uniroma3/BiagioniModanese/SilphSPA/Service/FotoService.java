@@ -22,6 +22,15 @@ public class FotoService {
 		return fotoRepository.save(foto);
 	}
 	
+	@Transactional
+	public Foto trovaFotoPerId(Long id) {
+		try {
+			return this.fotoRepository.findById(id).get();
+		}catch(NoSuchElementException e) {
+			return null;
+		}
+	}
+	
 	
 	
 	
