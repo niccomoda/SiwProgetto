@@ -34,8 +34,10 @@ public class FotoController {
 	public String newFoto(@Valid @ModelAttribute("foto") FotoForm fotoForm, Model model, BindingResult bindingResult) {
 		this.fotoFormValidator.validate(fotoForm, bindingResult);
 		if(!bindingResult.hasErrors()) {
-			
+			return "";
 		}
+		return "";
+	}
 	}*/
 	
 }

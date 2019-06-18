@@ -35,7 +35,7 @@ public class AlbumController {
 		return "inserimentoAlbum.html";
 	}
 	
-	@RequestMapping(value = "/inserimentoAlbum", method = RequestMethod.POST)
+	@RequestMapping(value = "/inserisciAlbum", method = RequestMethod.POST)
 	public String newAlbum(@Valid @ModelAttribute("albumForm") AlbumForm albumForm, Model model, BindingResult bindingResult) {
 		this.albumFormValidator.validate(albumForm, bindingResult);
 		if(!bindingResult.hasErrors()) {
