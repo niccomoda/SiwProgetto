@@ -31,7 +31,8 @@ public class FotoController {
 	private FotografoService fotografoService;
 	@Autowired
 	private AlbumService albumService;
-
+	
+	//proviamo il push
 	@RequestMapping(value="/inserimentoFoto", method= RequestMethod.POST)
 	public String newFoto(@Valid @ModelAttribute("fotoForm") FotoForm fotoForm, Model model, BindingResult bindingResult) {
 		//this.fotoFormValidator.validate(fotoForm, bindingResult);

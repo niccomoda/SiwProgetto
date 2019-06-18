@@ -26,7 +26,7 @@ public class FotografoController {
 	@Autowired
 	private FotografoValidator fotografoValidator;
 	
-	
+	//proviamo il push
 	@RequestMapping(value = "/inserisciFotografo", method = RequestMethod.POST)
 	public String newFotografo(@Valid @ModelAttribute("fotografo") Fotografo fotografo, Model model, BindingResult bindingResult) {
 		//this.fotografoValidator.validate(fotografo, bindingResult);

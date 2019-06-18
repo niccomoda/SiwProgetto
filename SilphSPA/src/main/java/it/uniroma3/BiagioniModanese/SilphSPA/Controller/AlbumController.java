@@ -32,7 +32,7 @@ public class AlbumController {
 	@Autowired
 	private AlbumFormValidator albumFormValidator;
 	
-	
+	//proviamo il push
 	@RequestMapping(value = "/inserisciAlbum", method = RequestMethod.POST)
 	public String newAlbum(@Valid @ModelAttribute("albumForm") AlbumForm albumForm, Model model, BindingResult bindingResult) {
 		//this.albumFormValidator.validate(albumForm, bindingResult);
