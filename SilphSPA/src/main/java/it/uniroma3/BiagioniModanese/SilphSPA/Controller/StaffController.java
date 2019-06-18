@@ -77,7 +77,7 @@ public class StaffController {
 		return "inserimentoFoto.html";
 	}
 	
-	@RequestMapping(value = "/inserimenteFotografo")
+	@RequestMapping(value = "/inserimentoFotografo")
 	public String inserimentoFotografo(Model model) {
 		model.addAttribute("fotografo", new Fotografo());
 		return "inserimentoFotografo.html";

@@ -1,5 +1,8 @@
 package it.uniroma3.BiagioniModanese.SilphSPA.Service;
 
+import java.util.List;
+import java.util.NoSuchElementException;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +21,9 @@ public class FotoService {
 	public Foto inserisci(Foto foto) {
 		return fotoRepository.save(foto);
 	}
+	
+	
+	
+	
 	
 }
