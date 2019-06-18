@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.Album;
+import it.uniroma3.BiagioniModanese.SilphSPA.Model.Fotografo;
 import it.uniroma3.BiagioniModanese.SilphSPA.Repository.AlbumRepository;
 
 @Service
@@ -21,8 +22,14 @@ public class AlbumService {
 		return albumRepository.save(album);
 	}
 	
+	
 	@Transactional
-	public Album trovaFotografoPerId(Long id) {
+	public List<Album> trovaAlbumPerNome(String nome){
+			return this.albumRepository.findByNome(nome);
+	}
+	
+	@Transactional
+	public Album trovaAlbumPerId(Long id) {
 		try {
 			return this.albumRepository.findById(id).get();
 		}catch(NoSuchElementException e) {
@@ -31,8 +38,8 @@ public class AlbumService {
 	}
 	
 	@Transactional
-	public List<Album> trovaAlbumPerNome(String nome){
-			return this.albumRepository.findByNome(nome);
+	public List<Album> trovaAlbumPerFotografo(Fotografo fotografo) {
+			return this.albumRepository.findByFotografo(fotografo);
 	}
 
 }

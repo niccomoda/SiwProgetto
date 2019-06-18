@@ -10,10 +10,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import it.uniroma3.BiagioniModanese.SilphSPA.Model.Album;
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.Foto;
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.FotoForm;
-import it.uniroma3.BiagioniModanese.SilphSPA.Repository.FotoRepository;
+import it.uniroma3.BiagioniModanese.SilphSPA.Model.Fotografo;
+import it.uniroma3.BiagioniModanese.SilphSPA.Model.StringaRicerca;
 import it.uniroma3.BiagioniModanese.SilphSPA.Service.FotoService;
+import it.uniroma3.BiagioniModanese.SilphSPA.Service.FotografoService;
+import it.uniroma3.BiagioniModanese.SilphSPA.Service.AlbumService;
 import it.uniroma3.BiagioniModanese.SilphSPA.Service.FotoFormValidator;
 
 @Controller
@@ -23,21 +27,64 @@ public class FotoController {
 	private FotoService fotoService;
 	@Autowired
 	private FotoFormValidator fotoFormValidator;
-	
-	@RequestMapping("/addFoto")
-	public String addFoto(Model model) {
-		model.addAttribute("foto", new FotoForm());
-		return "inserimentoFoto.html";
-	}
-	
-	/*@RequestMapping(value="/foto", method= RequestMethod.POST)
-	public String newFoto(@Valid @ModelAttribute("foto") FotoForm fotoForm, Model model, BindingResult bindingResult) {
+	@Autowired
+	private FotografoService fotografoService;
+	@Autowired
+	private AlbumService albumService;
+
+	@RequestMapping(value="/inserimentoFoto", method= RequestMethod.POST)
+	public String newFoto(@Valid @ModelAttribute("fotoForm") FotoForm fotoForm, Model model, BindingResult bindingResult) {
 		this.fotoFormValidator.validate(fotoForm, bindingResult);
 		if(!bindingResult.hasErrors()) {
-			return "";
+			Long id1 = null;
+			Long id2 = null;
+			try {
+				id1 = Long.parseLong(fotoForm.getIdFotografo());
+			}
+			catch(NumberFormatException e) {
+				bindingResult.rejectValue("idFotografo", "wrong");
+			}
+			try {
+				id2 = Long.parseLong(fotoForm.getIdAlbum());
+			}
+			catch(NumberFormatException e) {
+				bindingResult.rejectValue("idAlbum", "wrong");
+			}
+			Fotografo f = this.fotografoService.trovaFotografoPerId(id1);
+			for(Album alb : this.albumService.trovaAlbumPerFotografo(f)) {
+				if(alb.getId() == id2) {
+					if(f != null) {
+						Foto foto = new Foto();
+						foto.setAlbum(alb);
+						foto.setFotografo(f);
+						foto.setNome(fotoForm.getNome());
+						foto.setUri(fotoForm.getUri());
+						alb.getFoto().add(foto);
+						f.getFoto().add(foto);
+						fotoService.inserisci(foto);
+						return "foto.html";
+					}
+				}
+			}
 		}
-		return "";
+		return "inserimentoFoto.html";
 	}
-	}*/
-	
+
+
+	@RequestMapping(value = "/ricercaFoto")
+	public String ricercaFoto() {
+		return "ricercaFoto.html";
+	}
+
+	@RequestMapping(value = "/fotoNome")
+	public String cercaFotoNome(Model model) {
+		model.addAttribute("stringaRicerca", new StringaRicerca());
+		return "ricercaFotoNome.html";
+	}
+
+	@RequestMapping(value = "/fotoPerId")
+	public String cercaFotoPerId(Model model) {
+		model.addAttribute("stringaRicerca", new StringaRicerca());
+		return "ricercaFotoPerId.html";
+	}
 }

@@ -80,7 +80,8 @@
               </ul>
             </nav>
           </div>
-
+</div>
+</div>
       
     </header>
 
@@ -108,22 +109,19 @@
                
 
                 <div class="row form-group">
-                <form th:action = "@{/inserisciAlbum}" method = "POST" th:object = "${album}">
+                <form th:action = "@{/inserisciAlbum}" method = "POST" th:object = "${albumForm}">
                   <div class="col-md-6 mb-3 mb-md-0">
-                    <label class="text-black" for="fname">Nome</label><input type = "text" id = "nome" th:field = "*{nome}">
-                    <div><p class = "error" th:if = "@{#fields.hasError('nome')}" th:errors = "*{nome}"></p>
+                    <label class="text-black" for="nome">Nome</label><input type = "text" id = "nome" name="nome" th:field = "*{nome}">
+                    <div><p class = "error" th:if = "${#fields.hasErrors('nome')}" th:errors = "*{nome}"></p>
                   </div>
                   </div>
                   <div class="col-md-6">
-                    <label class="text-black" for="lname">Id Album</label><input type = "text" id = "idAlbum" th:field = "*{idAlbum}">
-                    <div><p class = "error" th:if = "@{#fields.hasError('idAlbum')}" th:errors = "*{idAlbum}"></p>
+                    <label class="text-black" for="idFotografo">Id Fotografo</label><input type = "text" id = "idFotografo" name="idFotografo" th:field = "*{idFotografo}">
+                    <div><p class = "error" th:if = "${#fields.hasErrors('idFotografo')}" th:errors = "*{idFotografo}"></p>
                   </div>
-                </div>
 
-                
-
-                <div class="row form-group">
-                  <div class="col-md-12">
+      <br>
+                  <div class="col-md-10">
                    <input type="submit" value="Inserisci" class="btn btn-primary py-2 px-4 text-white">
                   </div>
                 </div>
@@ -140,7 +138,7 @@
       </div>
     </div>
   </div>
-
+</div>
 
   
 

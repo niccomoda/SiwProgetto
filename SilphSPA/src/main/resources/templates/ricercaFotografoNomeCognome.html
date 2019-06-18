@@ -121,7 +121,7 @@
 							<div class=" form-group text-center justify-content-center ">
 								<form th:action="@{/risultatiFotografoNomeCognome}"
 									method="POST" th:object="${stringaRicerca}">
-									<p class = "error" th:if = "${fields.hasErrors('s1')}" th:errors = "*{s1}">
+									<p class = "error" th:if = "${#fields.hasErrors('s1')}" th:errors = "*{s1}">
 									<div class="row form-group">
 										<div class="col-md-6 mb-3 mb-md-0">
 											<label class="text-black" for="nome">Nome</label> <input

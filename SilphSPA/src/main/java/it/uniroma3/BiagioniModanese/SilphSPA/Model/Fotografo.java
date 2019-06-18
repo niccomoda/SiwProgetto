@@ -7,14 +7,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Fotografo {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Long id;
-	
+	//@NotEmpty(message="Campo Obbligatorio")
 	private String nome;
+	//@NotEmpty(message="Campo Obbligatorio")
 	private String cognome;
 	private String fotoProfilo;
 	

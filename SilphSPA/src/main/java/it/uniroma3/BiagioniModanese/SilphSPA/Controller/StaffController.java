@@ -1,9 +1,13 @@
  package it.uniroma3.BiagioniModanese.SilphSPA.Controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,12 +26,12 @@ public class StaffController {
 	
 	@Autowired
 	private StaffService staffService;
-	
-	/*@RequestMapping(value = "/login", method = RequestMethod.POST)
+	/*
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@Valid @ModelAttribute("staff") Staff staff, Model model, BindingResult bindingResult) {
 		this.staffValidator.validate(staff, bindingResult);
 		if(!bindingResult.hasErrors()) {
-			Staff c = staffService.login(staff.getUser(), staff.getPassword());
+			Staff c = staffService.login(staff.getUsername(), staff.getPassword());
 			if(c == null) {
 				bindingResult.rejectValue("username", "wrong");
 				return "login.html";
@@ -40,33 +44,32 @@ public class StaffController {
 		else {
 			return "admin.html";
 		}
-	}
-
+	}*/
+/*
 	@RequestMapping(value = "/loginForm")
 	public String loginForm(Model model) {
 		model.addAttribute("staff", new Staff());
 		return "login.html";
-	}*/
-	
+	}
+	*/
 	@RequestMapping(value = "/admin")
-	public String login(Model model) {
+	public String loginSuccess(Model model) {
 		return "admin.html";
 	}
-	
-	@RequestMapping(value = "/login", method = RequestMethod.GET )
+		@RequestMapping(value = "/login", method = RequestMethod.GET )
 	public String loginView(Model model) {
 
-		/*Staff ss = new Staff();
+		Staff ss = new Staff();
 		ss.setUsername("admin");
 		ss.setRole("admin");
 		ss.setPassword(new BCryptPasswordEncoder().encode("admin"));
-		this.staffService.inserisci(ss);*/
-		return "login";
+		this.staffService.inserisci(ss);
+		return "login.html";
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET )
 	public String logout(Model model) {
-		return "logout";
+		return "logout.html";
 	}
 
 	
@@ -77,7 +80,7 @@ public class StaffController {
 		return "inserimentoFoto.html";
 	}
 	
-	@RequestMapping(value = "/inserimenteFotografo")
+	@RequestMapping(value = "/inserimentoFotografo")
 	public String inserimentoFotografo(Model model) {
 		model.addAttribute("fotografo", new Fotografo());
 		return "inserimentoFotografo.html";
@@ -99,11 +102,7 @@ public class StaffController {
 		return "ricerca.html";
 	}
 	
-	@RequestMapping(value = "/ricercaFotografo")
-	public String ricercaFotografo() {
-		return "ricercafotografo.html";
-	}
-	
+
 	
 	
 }

@@ -19,6 +19,8 @@ public class FotoFormValidator implements Validator{
 	public void validate(Object target, Errors errors) {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nome", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "uri", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "idFotografo", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "idAlbum", "required");
 		
 	}
 

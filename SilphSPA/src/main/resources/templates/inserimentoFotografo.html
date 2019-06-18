@@ -81,7 +81,8 @@
             </nav>
           </div>
 
-      
+      </div>
+      </div>
     </header>
 
     <div class="site-blocks-cover overlay inner-page-cover" style="background-image: url('images/hero_bg_3.jpg');" data-stellar-background-ratio="0.5">
@@ -108,19 +109,18 @@
                 <div class="row form-group">
                 <form th:action = "@{/inserisciFotografo}" method = "POST" th:object = "${fotografo}">
                   <div class="col-md-6 mb-3 mb-md-0">
-                    <label class="text-black" for="fname">Nome</label><input type = "text" id = "nome" th:field = "*{nome}">
-                    <div><p class = "error" th:if = "@{#fields.hasError('nome')}" th:errors = "*{nome}"></p>
+                    <label class="text-black" for="nome">Nome</label><input type= "text" id = "nome" th:field = "*{nome}">
+                    <div><p class = "error" th:if = "${#fields.hasErrors('nome')}" th:errors = "*{nome}"></p>
                   </div>
                   </div>
                   <div class="col-md-6">
-                  <label class="text-black" for="lname">Cognome</label><input type = "text" id = "cognome" th:field = "*{cognome}">
-                    <div><p class = "error" th:if = "@{#fields.hasError('cognome')}" th:errors = "*{cognome}"></p>
+                  <label class="text-black" for="cognome">Cognome</label><input type = "text" id = "cognome" name="cognome"th:field = "*{cognome}">
+                    <div><p class = "error" th:if = "${#fields.hasErrors('cognome')}" th:errors = "*{cognome}">
                   </div>
-                </div>
 
-                
 
-                <div class="row form-group">
+                <br>
+
                   <div class="col-md-12">
                    <input type="submit" value="Inserisci" class="btn btn-primary py-2 px-4 text-white">
                   </div>
@@ -137,6 +137,7 @@
     
       </div>
     </div>
+  </div>
   </div>
 
 
