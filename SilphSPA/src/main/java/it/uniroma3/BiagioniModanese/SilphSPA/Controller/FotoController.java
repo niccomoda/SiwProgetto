@@ -34,7 +34,7 @@ public class FotoController {
 
 	@RequestMapping(value="/inserimentoFoto", method= RequestMethod.POST)
 	public String newFoto(@Valid @ModelAttribute("fotoForm") FotoForm fotoForm, Model model, BindingResult bindingResult) {
-		this.fotoFormValidator.validate(fotoForm, bindingResult);
+		//this.fotoFormValidator.validate(fotoForm, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			Long id1 = null;
 			Long id2 = null;
@@ -87,4 +87,12 @@ public class FotoController {
 		model.addAttribute("stringaRicerca", new StringaRicerca());
 		return "ricercaFotoPerId.html";
 	}
+	
+	@RequestMapping(value = "/addFoto")
+	public String aggiungiFoto(Model model) {
+		model.addAttribute("foto", new FotoForm());
+		return "inserimentoFoto.html";
+	}
+	
+	
 }

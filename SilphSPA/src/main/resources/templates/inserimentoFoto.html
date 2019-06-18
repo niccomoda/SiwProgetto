@@ -88,37 +88,6 @@
 			</div>
 
 
-			<div class="col-6 col-xl-2">
-				<h1 class="mb-0">
-					<a href="/" class="text-black h2 mb-0">Silph<span
-						class="text-primary">.</span></a>
-				</h1>
-			</div>
-			<div class="col-10 col-md-8 d-none d-xl-block">
-				<nav
-					class="site-navigation position-relative text-right text-lg-center"
-					role="navigation">
-
-					<ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-						<li><a href="login.html">Home</a></li>
-						<li class="has-children"><a href="single.html">Fotografi</a>
-							<ul class="dropdown">
-								<li><a href="#">Natura</a></li>
-								<li><a href="#">Ritratti</a></li>
-								<li><a href="#">Matrimonio</a></li>
-								<li class="has-children"><a href="#">Sub Menu</a>
-									<ul class="dropdown">
-										<li><a href="#">Menu One</a></li>
-										<li><a href="#">Menu Two</a></li>
-										<li><a href="#">Menu Three</a></li>
-									</ul></li>
-							</ul></li>
-						<li><a href="services.html">Album</a></li>
-						<li><a href="about.html">Carrello</a></li>
-						<li class="active"><a href="/admin">Accedi</a></li>
-					</ul>
-				</nav>
-			</div>
 		</header>
 
 		<div class="site-blocks-cover overlay inner-page-cover"
@@ -128,7 +97,6 @@
 				<div class="row align-items-center justify-content-center">
 					<div class="col-md-7 text-center" data-aos="fade-up">
 						<h1>Inserisci una foto</h1>
-						<h1>Inserisci un fotografo</h1>
 					</div>
 				</div>
 			</div>
@@ -144,75 +112,18 @@
 
 						<div class="row">
 							<div class="col-lg-8 mb-5">
-
-
-								<div class="row form-group">
-									<form th:action="@{/inserimentoFoto}" method="POST"
-										th:object="${fotoForm}">
-										<div class="col-md-6 mb-3 mb-md-0">
-											<label class="text-black" for="nome">Nome</label><input
-												type="text" id="nome" th:field="*{nome}">
-											<div>
-												<p class="error" th:if="${#fields.hasErrors('nome')}"
-													th:errors="*{nome}"></p>
-											</div>
-										</div>
-										<div class="col-md-6 mb-3 mb-md-0">
-											<label class="text-black" for="uri">URL</label><input
-												type="text" id="uri" th:field="*{uri}">
-											<div>
-												<p class="error" th:if="${#fields.hasErrors('uri')}"
-													th:errors="*{uri}">
-											</div>
-										</div>
-
-										<div class="col-md-6 mb-3 mb-md-0">
-											<label class="text-black" for="idFotografo">Id
-												Fotografo</label><input type="text" id="idFotografo"
-												th:field="*{idFotografo}">
-											<div>
-												<p class="error" th:if="${#fields.hasErrors('idFotografo')}"
-													th:errors="*{idFotografo}"></p>
-											</div>
-										</div>
-										<div class="col-md-6 mb-3 mb-md-0">
-											<label class="text-black" for="idAlbum">Id Album</label><input
-												type="text" id="idAlbum" th:field="*{idAlbum}">
-											<div>
-												<p class="error" th:if="${#fields.hasErrors('idAlbum')}"
-													th:errors="*{idAlbum}"></p>
-											</div>
-										</div>
-
-
-
-
-
-
-										<div class="row form-group">
-											<div class="col-md-12">
-												<input type="submit" value="Inserisci"
-													class="btn btn-primary py-2 px-4 text-white">
-											</div>
-										</div>
-
-
-									</form>
-								</div>
-
-
 							</div>
-						</div>
-					</div>
+							</div>
 
-				</div>
+
+								
 						<div class="row justify-content-center">
 							
 
 
 								<div class="row text-center">
 									<form th:action="@{/inserimentoFoto}" method="POST"
-										th:object="${fotografo}">
+										th:object="${foto}">
 										<div class="col-md-6 mb-3 mb-md-0">
 											<label class="text-black justify-content-center" for="nome">Nome</label><input
 												type="text" id="nome" name="nome" th:field="*{nome}">
@@ -254,6 +165,7 @@
 										</div>
 
 									</form>
+								</div>
 								</div>
 
 						</div>

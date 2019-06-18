@@ -47,13 +47,28 @@ public class FotografoController {
 	@RequestMapping(value = "/fotografoNomeCognome")
 	public String cercaFotografoNomeCognome(Model model) {
 		model.addAttribute("stringaRicerca", new StringaRicerca());
-		return "ricercaFotografoNomeCognome.html";
+		return "cercaFotografoNomeCognome.html";
 	}
 	
 	@RequestMapping(value = "/fotografoPerId")
 	public String cercaFotografoPerId(Model model) {
 		model.addAttribute("stringaRicerca", new StringaRicerca());
-		return "ricercaFotografoPerId.html";
+		return "cercaFotografoId.html";
+	}
+	
+	@RequestMapping(value ="/cercaFotografoPerId")
+	public String risultatoFotografoId(@ModelAttribute("stringaRicerca") StringaRicerca s, Model model, BindingResult bindingResult) {
+		if(s.getS1() == "") {
+			bindingResult.rejectValue("s1", "wrong");
+			return "cercaFotografoId.html";
+		}
+		Fotografo f = this.fotografoService.trovaFotografoPerId(Long.parseLong(s.getS1()));
+		if(f != null) {
+			model.addAttribute("fotografo", f);
+			return "risultatoFotografoPerId.html";
+		}
+		else
+			return "cercaFotografoId.html";
 	}
 	
 	@RequestMapping(value = "/risultatiFotografoNomeCognome", method = RequestMethod.POST)
@@ -61,7 +76,7 @@ public class FotografoController {
 		List<Fotografo> risultato;
 		if(s.getS1() == "" && s.getS2() == "") {
 			bindingResult.rejectValue("s1", "wrong");
-			return "ricercaFotografoNomeCognome.html";
+			return "cercaFotografoNomeCognome.html";
 		}
 		else if(s.getS1() == "") {
 			risultato = this.fotografoService.trovaFotografoPerCognome(s.getS2());
@@ -74,7 +89,7 @@ public class FotografoController {
 		}
 		if(risultato.size() == 0) {
 			bindingResult.rejectValue("s1", "wrong");
-			return "ricercaFotografoNomeCognome.html";
+			return "cercaFotografoNomeCognome.html";
 		}
 		else {
 			model.addAttribute("risultato", risultato);

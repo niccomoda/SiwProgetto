@@ -1,5 +1,7 @@
 package it.uniroma3.BiagioniModanese.SilphSPA.Controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,5 +74,38 @@ public class AlbumController {
 	public String cercaAlbumPerId(Model model) {
 		model.addAttribute("stringaRicerca", new StringaRicerca());
 		return "ricercaAlbumPerId.html";
+	}
+	
+	@RequestMapping(value = "/risultatiAlbumNome", method = RequestMethod.POST)
+	public String risultatiAlbumNome(@ModelAttribute("stringaRicerca") StringaRicerca s, Model model, BindingResult bindingResult) {
+		List<Album> risultato;
+		if(s.getS1() == "") {
+			bindingResult.rejectValue("s1", "wrong");
+			return "ricercaAlbumNome.html";
+		}
+		risultato = this.albumService.trovaAlbumPerNome(s.getS1());
+		if(risultato.size() == 0) {
+			bindingResult.rejectValue("s1", "wrong");
+			return "ricercaAlbumNome.html";
+		}
+		else {
+			model.addAttribute("risultato", risultato);
+			return "listaAlbum.html";
+		}
+	}
+
+	@RequestMapping(value ="/cercaAlbumPerId")
+	public String risultatoAlbumId(@ModelAttribute("stringaRicerca") StringaRicerca s, Model model, BindingResult bindingResult) {
+		if(s.getS1() == "") {
+			bindingResult.rejectValue("s1", "wrong");
+			return "ricercaAlbumId.html";
+		}
+		Album a = this.albumService.trovaAlbumPerId(Long.parseLong(s.getS1()));
+		if(a != null) {
+			model.addAttribute("album", a);
+			return "risultatoAlbumPerId.html";
+		}
+		else
+			return "ricercaAlbumId.html";
 	}
 }
