@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.Album;
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.AlbumForm;
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.Fotografo;
+import it.uniroma3.BiagioniModanese.SilphSPA.Model.StringaRicerca;
 import it.uniroma3.BiagioniModanese.SilphSPA.Service.AlbumFormValidator;
 import it.uniroma3.BiagioniModanese.SilphSPA.Service.AlbumService;
 import it.uniroma3.BiagioniModanese.SilphSPA.Service.FotografoService;
@@ -29,15 +30,10 @@ public class AlbumController {
 	@Autowired
 	private AlbumFormValidator albumFormValidator;
 	
-	@RequestMapping(value = "/addAlbum")
-	public String addAlbum(Model model) {
-		model.addAttribute("albumForm", new AlbumForm());
-		return "inserimentoAlbum.html";
-	}
 	
 	@RequestMapping(value = "/inserisciAlbum", method = RequestMethod.POST)
 	public String newAlbum(@Valid @ModelAttribute("albumForm") AlbumForm albumForm, Model model, BindingResult bindingResult) {
-		this.albumFormValidator.validate(albumForm, bindingResult);
+		//this.albumFormValidator.validate(albumForm, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			Long id = null;
 			try{id = Long.parseLong(albumForm.getIdFotografo());}
@@ -61,4 +57,20 @@ public class AlbumController {
 		return "inserimentoAlbum.html";
 	}
 	
+	@RequestMapping(value = "/ricercaAlbum")
+	public String ricercaAlbum() {
+		return "ricercaAlbum.html";
+	}
+	
+	@RequestMapping(value = "/AlbumNome")
+	public String cercaAlbumNome(Model model) {
+		model.addAttribute("stringaRicerca", new StringaRicerca());
+		return "ricercaAlbumNome.html";
+	}
+	
+	@RequestMapping(value = "/AlbumPerId")
+	public String cercaAlbumPerId(Model model) {
+		model.addAttribute("stringaRicerca", new StringaRicerca());
+		return "ricercaAlbumPerId.html";
+	}
 }

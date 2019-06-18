@@ -17,4 +17,5 @@ public class AlbumForm {
 	public void setIdFotografo(String idFotografo) {
 		this.idFotografo = idFotografo;
 	}
+	
 }

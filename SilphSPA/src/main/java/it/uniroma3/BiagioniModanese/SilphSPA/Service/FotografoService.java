@@ -45,4 +45,5 @@ public class FotografoService {
 			return this.fotografoRepository.findByNomeAndCognome(nome, cognome);
 	}
 
+	
 }

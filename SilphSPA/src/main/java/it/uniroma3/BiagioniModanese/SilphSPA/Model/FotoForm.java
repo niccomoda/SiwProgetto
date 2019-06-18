@@ -3,8 +3,18 @@ package it.uniroma3.BiagioniModanese.SilphSPA.Model;
 public class FotoForm {
 	
 	private String nome;
+	private String uri;
 	private String idFotografo;
 	private String idAlbum;
+	
+
+	public String getUri() {
+		return uri;
+	}
+
+	public void setUri(String uri) {
+		this.uri = uri;
+	}
 
 	public String getNome() {
 		return nome;

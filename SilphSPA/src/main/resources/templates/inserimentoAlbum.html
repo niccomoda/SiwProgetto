@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns="htttp://www.w3.org/1999/html">
 <head>
@@ -124,7 +123,7 @@
 											type="text" id="nome" name="nome" th:field="*{nome}">
 									</div>
 									<div>
-										<p class="error" th:if="@{#fields.hasErrors('nome')}"
+										<p class="error" th:if="${#fields.hasErrors('nome')}"
 											th:errors="*{nome}"></p>
 									</div>
 									<br>
@@ -134,7 +133,7 @@
 											th:field="*{idFotografo}">
 									</div>
 									<div>
-										<p class="error" th:if="@{#fields.hasErrors('idFotografo')}"
+										<p class="error" th:if="${#fields.hasErrors('idFotografo')}"
 											th:errors="*{idFotografo}"></p>
 									</div>
 
@@ -184,6 +183,7 @@
 	<script src="js/main.js"></script>
 
 	<script>
+
 
   </script>
 </body>

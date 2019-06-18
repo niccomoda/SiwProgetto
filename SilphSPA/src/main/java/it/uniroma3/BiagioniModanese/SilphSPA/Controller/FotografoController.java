@@ -29,26 +29,31 @@ public class FotografoController {
 	
 	@RequestMapping(value = "/inserisciFotografo", method = RequestMethod.POST)
 	public String newFotografo(@Valid @ModelAttribute("fotografo") Fotografo fotografo, Model model, BindingResult bindingResult) {
-		this.fotografoValidator.validate(fotografo, bindingResult);
+		//this.fotografoValidator.validate(fotografo, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			this.fotografoService.salvaFotografo(fotografo);
-			return "successo.html";
+			return "fotografo.html";
 		}
 		else {
 			return "inserimentoFotografo.html";
 		}
 	}
 	
+	@RequestMapping(value = "/ricercaFotografo")
+	public String ricercaFotografo() {
+		return "ricercafotografo.html";
+	}
+	
 	@RequestMapping(value = "/fotografoNomeCognome")
 	public String cercaFotografoNomeCognome(Model model) {
 		model.addAttribute("stringaRicerca", new StringaRicerca());
-		return "ricercaFotografoNomeCognome";
+		return "ricercaFotografoNomeCognome.html";
 	}
 	
 	@RequestMapping(value = "/fotografoPerId")
 	public String cercaFotografoPerId(Model model) {
 		model.addAttribute("stringaRicerca", new StringaRicerca());
-		return "ricercaFotografoPerId";
+		return "ricercaFotografoPerId.html";
 	}
 	
 	@RequestMapping(value = "/risultatiFotografoNomeCognome", method = RequestMethod.POST)

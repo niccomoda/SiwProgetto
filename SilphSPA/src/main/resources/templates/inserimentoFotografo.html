@@ -110,39 +110,39 @@
 
 
 						<div class="row justify-content-center">
-							
 
 
-								<div class="row text-center">
-									<form th:action="@{/inserimentoFotografo}" method="POST"
-										th:object="${fotografo}">
-										<div class="col-md-6 mb-3 mb-md-0">
-											<label class="text-black justify-content-center" for="nome">Nome</label><input
-												type="text" id="nome" name="nome" th:field="*{nome}">
-										</div>
-										<div>
-											<p class="error" th:if="@{#fields.hasErrors('nome')}"
-												th:errors="*{nome}"></p>
-										</div>
-										<br>
-										<div class="col-md-6">
-											<label class="text-black " for="Cognome">Cognome</label><input type="text" id="cognome" name="cognome"
-												th:field="*{cognome}">
-										</div>
-										<div>
-											<p class="error" th:if="@{#fields.hasErrors('cognome')}"
-												th:errors="*{cognome}"></p>
-										</div>
+
+							<div class="row text-center">
+								<form th:action="@{/inserimentoFotografo}" method="POST"
+									th:object="${fotografo}">
+									<div class="col-md-6 mb-3 mb-md-0">
+										<label class="text-black justify-content-center" for="nome">Nome</label><input
+											type="text" id="nome" name="nome" th:field="*{nome}">
+									</div>
+									<div>
+										<p class="error" th:if="${#fields.hasErrors('nome')}"
+											th:errors="*{nome}"></p>
+									</div>
+									<br>
+									<div class="col-md-6">
+										<label class="text-black " for="Cognome">Cognome</label><input
+											type="text" id="cognome" name="cognome" th:field="*{cognome}">
+									</div>
+									<div>
+										<p class="error" th:if="${#fields.hasErrors('cognome')}"
+											th:errors="*{cognome}"></p>
+									</div>
 
 
-										<br>
-										<div class="col-md-6 mb-3 mb-md-0">
-											<input type="submit" value="Inserisci"
-												class="btn btn-primary py-2 px-4 text-white">
-										</div>
+									<br>
+									<div class="col-md-6 mb-3 mb-md-0">
+										<input type="submit" value="Inserisci"
+											class="btn btn-primary py-2 px-4 text-white">
+									</div>
 
-									</form>
-								</div>
+								</form>
+							</div>
 
 						</div>
 					</div>
@@ -151,38 +151,5 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
-
-
-
-
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/jquery-migrate-3.0.1.min.js"></script>
-	<script src="js/jquery-ui.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.stellar.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/bootstrap-datepicker.min.js"></script>
-	<script src="js/swiper.min.js"></script>
-	<script src="js/aos.js"></script>
-
-	<script src="js/picturefill.min.js"></script>
-	<script src="js/lightgallery-all.min.js"></script>
-	<script src="js/jquery.mousewheel.min.js"></script>
-
-	<script src="js/main.js"></script>
-
-	<script>
-		$(document).ready(function() {
-			$('#lightgallery').lightGallery();
-		});
-	</script>
 </body>
+</html>
