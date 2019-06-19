@@ -41,5 +41,10 @@ public class AlbumService {
 	public List<Album> trovaAlbumPerFotografo(Fotografo fotografo) {
 			return this.albumRepository.findByFotografo(fotografo);
 	}
+	
+	@Transactional
+	public List<Album> tuttiAlbum(){
+		return (List<Album>)this.albumRepository.findAll();
+	}
 
 }

@@ -144,4 +144,10 @@ public class FotoController {
 		return "fotografie.html";
 	}
 	
+	@RequestMapping(value = "/mostrafoto/{id}", method=RequestMethod.GET)
+	public String mostraFoto(@ModelAttribute("id") Long id, Model model) {
+		model.addAttribute("foto", this.fotoService.trovaFotoPerId(id));
+		return "mostrafoto.html";
+	}
+	
 }
