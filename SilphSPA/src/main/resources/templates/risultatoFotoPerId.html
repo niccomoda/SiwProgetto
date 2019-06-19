@@ -106,7 +106,14 @@
 
 			<div class="row no-gutters">
 				<div class="col-sm-6 col-md-4 col-lg-6 col-xl-6 item">
-					<img th:src="${foto.uri}" align="left" width="720" height="480">
+					<a th:href="@{'/mostrafoto/' + ${foto.id}}"><img
+							th:src="${foto.uri}" ></a>
+							<span th:text="${foto.nome} " style="color: black; font-family: cursive; font-size: 160%;" ></span>
+							<br>
+							<span th:text="'Fotografo:'" style="color: black; font-family: cursive; font-size: 160%; width: 100%;"></span>
+							<br>
+							<span th:text="${foto.fotografo.nome} + ' ' + ${foto.fotografo.cognome}" style="color: blue; font-family: cursive; font-size: 160%; width: 100%;"> </span>
+							 <br>
 					<br>
 				</div>
 			</div>

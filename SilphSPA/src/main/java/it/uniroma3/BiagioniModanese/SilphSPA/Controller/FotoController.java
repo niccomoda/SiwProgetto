@@ -92,12 +92,6 @@ public class FotoController {
 		return "ricercaFotoPerId.html";
 	}
 	
-	@RequestMapping(value = "/addFoto")
-	public String aggiungiFoto(Model model) {
-		model.addAttribute("foto", new FotoForm());
-		return "inserimentoFoto.html";
-	}
-	
 	@RequestMapping(value = "/risultatiFotoNome" , method = RequestMethod.POST)
 	public String ricercaFotoPerNome(@Valid @ModelAttribute("stringaRicerca") StringaRicerca sr, Model model, BindingResult bindingResult) {
 		List<Foto> l;
