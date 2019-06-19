@@ -99,8 +99,10 @@
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 item" >
         <ul>
         <li th:each = "album : ${albums}" >
-        	<br>
-          <img th:src="${album.nome}" th:alt="${album.nome}" class="img-fluid">
+        <span th:text="${album.fotografo.nome}"></span>
+         <span th:text="${album.fotografo.cognome}"></span>
+         <img th:src="${album.fotografo.fotoProfilo}">
+          <a th:href="@{'/mostraAlbum/' + ${album.id}}" th:text="${album.nome}"></a>
           	<br>
         </li>
         </ul>
