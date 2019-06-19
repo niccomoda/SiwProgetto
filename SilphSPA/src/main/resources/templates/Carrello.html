@@ -106,6 +106,7 @@
 				</div>
 			</div>
 			<div th:each="foto: ${carrello.foto}">
+          <img th:src="${foto.uri}" th:alt="${foto.nome}" class="img-fluid">
 				<div class="row align-items-center justify-content-center"></div>
 			</div>
 		</div>

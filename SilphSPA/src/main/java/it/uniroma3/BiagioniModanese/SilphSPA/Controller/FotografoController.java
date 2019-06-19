@@ -67,7 +67,7 @@ public class FotografoController {
 		try {
 			id = Long.parseLong(s.getS1());
 		}catch (NumberFormatException e) {
-			return "cercaFotografoId";
+			return "cercaFotografoId.html";
 		}
 		
 		Fotografo f = this.fotografoService.trovaFotografoPerId(id);
@@ -90,7 +90,7 @@ public class FotografoController {
 			risultato = this.fotografoService.trovaFotografoPerCognome(s.getS2());
 		}
 		else if(s.getS2() == "") {
-			risultato = this.fotografoService.trovaFotografoPerCognome(s.getS1());
+			risultato = this.fotografoService.trovaFotografoPerNome(s.getS1());
 		}
 		else {
 			risultato = this.fotografoService.trovaFotografoPerNomeCognome(s.getS1(), s.getS2());

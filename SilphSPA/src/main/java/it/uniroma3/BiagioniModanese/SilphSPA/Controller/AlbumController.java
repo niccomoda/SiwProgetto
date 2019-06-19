@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.Album;
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.AlbumForm;
+import it.uniroma3.BiagioniModanese.SilphSPA.Model.Foto;
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.Fotografo;
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.StringaRicerca;
 import it.uniroma3.BiagioniModanese.SilphSPA.Service.AlbumFormValidator;
@@ -98,7 +99,7 @@ public class AlbumController {
 	public String risultatoAlbumId(@ModelAttribute("stringaRicerca") StringaRicerca s, Model model, BindingResult bindingResult) {
 		if(s.getS1() == "") {
 			bindingResult.rejectValue("s1", "wrong");
-			return "ricercaAlbumId.html";
+			return "ricercaAlbumPerId.html";
 		}
 		
 		Long id = 0L;
@@ -115,6 +116,14 @@ public class AlbumController {
 			return "risultatoAlbumPerId.html";
 		}
 		else
-			return "ricercaAlbumId.html";
+			return "ricercaAlbumPerId.html";
+	}
+	
+	@RequestMapping(value="/mostraAlbum/{id}")
+	public String mostraFotoAlbum(@ModelAttribute ("id")Long id, Model model) {
+		Album a = this.albumService.trovaAlbumPerId(id);
+		List<Foto> foto = a.getFoto();
+		model.addAttribute("fotos", foto);
+		return "mostraFotoAlbum.html";
 	}
 }
