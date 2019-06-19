@@ -108,8 +108,14 @@
 
 					<div th:each="foto : ${fotografie}">
 						<a th:href="@{'/mostrafoto/' + ${foto.id}}"><img
-							th:src="${foto.uri}" th:alt="${foto.nome}" width="480"
-							height="260"></a> <br> <br>
+							th:src="${foto.uri}" width="480"
+							height="260"></a>
+							<span th:text="${foto.nome} " style="color: black; font-family: cursive; font-size: 160%;" ></span>
+							<br>
+							<span th:text="'Fotografo:'" style="color: black; font-family: cursive; font-size: 160%; width: 100%;"></span>
+							<br>
+							<span th:text="${foto.fotografo.nome} + ' ' + ${foto.fotografo.cognome}" style="color: blue; font-family: cursive; font-size: 160%; width: 100%;"> </span>
+							 <br>
 					</div>
 				</div>
 			</div>

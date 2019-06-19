@@ -102,6 +102,8 @@
         <li th:each = "fotografo : ${fotografi}" >
           <a th:href="@{'/mostrafotografo/' + ${fotografo.id}}" ><img th:src="${fotografo.fotoProfilo}" th:alt="${fotografo.nome}" class="img-fluid"></a>
           	<br>
+          	<span th:text="${fotografo.nome} + ' ' + ${fotografo.cognome}" style="color: black"></span>
+          	<br>
         </li>
         </ul>
       </div>

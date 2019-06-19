@@ -28,7 +28,7 @@ public class FotografoController {
 	
 	@RequestMapping(value = "/inserisciFotografo", method = RequestMethod.POST)
 	public String newFotografo(@Valid @ModelAttribute("fotografo") Fotografo fotografo, Model model, BindingResult bindingResult) {
-		this.fotografoValidator.validate(fotografo, bindingResult);
+		//this.fotografoValidator.validate(fotografo, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			this.fotografoService.salvaFotografo(fotografo);
 			return "fotografo.html";
