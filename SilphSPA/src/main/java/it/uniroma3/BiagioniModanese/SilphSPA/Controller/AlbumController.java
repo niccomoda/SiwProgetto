@@ -107,7 +107,7 @@ public class AlbumController {
 		try {
 			id = Long.parseLong(s.getS1());
 		}catch (NumberFormatException e) {
-			return "ricercaAlbumPerId";
+			return "ricercaAlbumPerId.html";
 		}
 		
 		Album a = this.albumService.trovaAlbumPerId(id);
