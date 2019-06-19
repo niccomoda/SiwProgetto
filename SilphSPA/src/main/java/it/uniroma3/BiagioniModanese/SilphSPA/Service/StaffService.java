@@ -11,6 +11,7 @@ import it.uniroma3.BiagioniModanese.SilphSPA.Repository.StaffRepository;
 
 @Service
 public class StaffService {
+
 	@Autowired
 	private StaffRepository staffRepository;
 	
@@ -24,6 +25,5 @@ public class StaffService {
 	public Staff inserisci(Staff staff) {
 		return staffRepository.save(staff);
 	}
-	
 	
 }

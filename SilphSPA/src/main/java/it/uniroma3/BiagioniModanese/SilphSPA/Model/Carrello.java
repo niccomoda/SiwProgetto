@@ -42,6 +42,8 @@ public final class Carrello{
 	public void svuotaCarrello() {
 		carrello.getFoto().clear();
 	}
+
+	
 	
 	
 }

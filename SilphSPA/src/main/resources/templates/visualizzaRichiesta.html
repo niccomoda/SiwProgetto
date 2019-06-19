@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="htttp://www.w3.org/1999/html">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<ul>
+<li th:each="richiesta : ${richieste}">
+<div th:text="${richiesta.nome}"></div>
+<div th:text="${richiesta.email}"></div>
+<div th:text="${richiesta.descrizione}"></div>
+<a th:href="@{'/listaDifotoRichiesta/' + ${richiesta.id}}">Foto selezionate</a>
+</li>
+</ul>
+</body>
+</html>

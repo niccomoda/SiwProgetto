@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="htttp://www.w3.org/1999/html">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="row text-center">
+							<form th:action="@{/nuovaRichiesta}" method="POST"
+								th:object="${richiesta}">
+								<div class="col-md-6 mb-3 mb-md-0">
+									<label class="text-black justify-content-center" for="nome">Nome</label><input
+										type="text" id="nome" name="nome" th:field="*{nome}">
+								</div>
+								<div>
+									<p class="error" th:if="@{#fields.hasErrors('nome')}"
+										th:errors="*{nome}"></p>
+								</div>
+								<div class="col-md-6 mb-3 mb-md-0">
+									<label class="text-black justify-content-center" for="email">Email</label><input
+										type="text" id="eamil" name="email" th:field="*{email}">
+								</div>
+								<div>
+									<p class="error" th:if="@{#fields.hasErrors('email')}"
+										th:errors="*{email}"></p>
+								</div>
+								<div class="col-md-6 mb-3 mb-md-0">
+									<label class="text-black justify-content-center" for="descrizione">Descrizione</label><input
+										type="text" id="descrizione" name="descrizione" th:field="*{descrizione}">
+								</div>
+								<div>
+									<p class="error" th:if="@{#fields.hasErrors('descrizione')}"
+										th:errors="*{descrizione}"></p>
+								</div>
+								<br>
+									<div class="col-md-6 mb-3 mb-md-0">
+										<input type="submit" value="Inserisci"
+											class="btn btn-primary py-2 px-4 text-white">
+									</div>
+								
+								</form>
+								</div>
+</body>
+</html>

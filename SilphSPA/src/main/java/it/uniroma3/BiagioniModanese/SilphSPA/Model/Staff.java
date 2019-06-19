@@ -1,5 +1,7 @@
 package it.uniroma3.BiagioniModanese.SilphSPA.Model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +17,7 @@ public class Staff {
 	private String username;
 	private String password;
 	private String role;
-	
+
 	public String getUsername() {
 		return username;
 	}
