@@ -26,7 +26,6 @@ public class FotografoController {
 	@Autowired
 	private FotografoValidator fotografoValidator;
 	
-	//proviamo il push
 	@RequestMapping(value = "/inserisciFotografo", method = RequestMethod.POST)
 	public String newFotografo(@Valid @ModelAttribute("fotografo") Fotografo fotografo, Model model, BindingResult bindingResult) {
 		//this.fotografoValidator.validate(fotografo, bindingResult);
@@ -62,7 +61,16 @@ public class FotografoController {
 			bindingResult.rejectValue("s1", "wrong");
 			return "cercaFotografoId.html";
 		}
-		Fotografo f = this.fotografoService.trovaFotografoPerId(Long.parseLong(s.getS1()));
+		
+		Long id = 0L;
+		
+		try {
+			id = Long.parseLong(s.getS1());
+		}catch (NumberFormatException e) {
+			return "cercaFotografoId";
+		}
+		
+		Fotografo f = this.fotografoService.trovaFotografoPerId(id);
 		if(f != null) {
 			model.addAttribute("fotografo", f);
 			return "risultatoFotografoPerId.html";
@@ -95,6 +103,15 @@ public class FotografoController {
 			model.addAttribute("risultato", risultato);
 			return "listaFotografi.html";
 		}
+	}
+	
+	@RequestMapping(value = "/fotografi")
+	public String tuttiFotografi(Model model) {
+		List<Fotografo> f;
+		f = this.fotografoService.tuttiFotografi();
+		model.addAttribute("fotografi", f);
+		return "fotografi.html";
+		
 	}
 	
 	

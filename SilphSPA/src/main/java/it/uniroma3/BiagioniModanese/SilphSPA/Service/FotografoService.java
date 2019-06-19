@@ -44,6 +44,11 @@ public class FotografoService {
 	public List<Fotografo> trovaFotografoPerNomeCognome(String nome, String cognome){
 			return this.fotografoRepository.findByNomeAndCognome(nome, cognome);
 	}
+	
+	@Transactional
+	public List<Fotografo> tuttiFotografi(){
+		return (List<Fotografo>)this.fotografoRepository.findAll();
+	}
 
 	
 }

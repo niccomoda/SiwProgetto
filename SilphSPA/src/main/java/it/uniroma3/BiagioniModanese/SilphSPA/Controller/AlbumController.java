@@ -32,7 +32,7 @@ public class AlbumController {
 	@Autowired
 	private AlbumFormValidator albumFormValidator;
 	
-	//proviamo il push
+
 	@RequestMapping(value = "/inserisciAlbum", method = RequestMethod.POST)
 	public String newAlbum(@Valid @ModelAttribute("albumForm") AlbumForm albumForm, Model model, BindingResult bindingResult) {
 		//this.albumFormValidator.validate(albumForm, bindingResult);
@@ -100,7 +100,16 @@ public class AlbumController {
 			bindingResult.rejectValue("s1", "wrong");
 			return "ricercaAlbumId.html";
 		}
-		Album a = this.albumService.trovaAlbumPerId(Long.parseLong(s.getS1()));
+		
+		Long id = 0L;
+		
+		try {
+			id = Long.parseLong(s.getS1());
+		}catch (NumberFormatException e) {
+			return "ricercaAlbumPerId";
+		}
+		
+		Album a = this.albumService.trovaAlbumPerId(id);
 		if(a != null) {
 			model.addAttribute("album", a);
 			return "risultatoAlbumPerId.html";

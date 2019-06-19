@@ -31,5 +31,17 @@ public final class Carrello{
 		this.foto = foto;
 	}
 	
+	public void aggiungiFoto(Foto foto) {
+		carrello.getFoto().add(foto);
+	}
+	
+	public void rimuoviFoto(Foto foto) {
+		carrello.getFoto().remove(foto);
+	}
+	
+	public void svuotaCarrello() {
+		carrello.getFoto().clear();
+	}
+	
 	
 }

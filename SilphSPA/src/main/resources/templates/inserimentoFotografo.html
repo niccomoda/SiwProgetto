@@ -44,6 +44,7 @@
 			</div>
 			<div class="site-mobile-menu-body"></div>
 		</div>
+	</div>
 
 
 		<header class="site-navbar py-3" role="banner">
@@ -51,42 +52,37 @@
 
 
 
+		<div class="container">
+			<div class="row align-items-center">
 
+				<div class="col-6 col-xl-2">
+					<h1 class="mb-0">
+						<a href="/" class="text-black h2 mb-0">Silph<span
+							class="text-primary">.</span></a>
+					</h1>
+				</div>
+				<div class="col-10 col-md-8 d-none d-xl-block">
+					<nav
+						class="site-navigation position-relative text-right text-lg-center"
+						role="navigation">
 
-			<div class="col-6 col-xl-2">
-				<h1 class="mb-0">
-					<a href="/" class="text-black h2 mb-0">Silph<span
-						class="text-primary">.</span></a>
-				</h1>
+						<ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+							<li class="active"><a href="/">Home</a></li>
+							<li class="has-children"><a href="single.html">Categorie</a>
+								<ul class="dropdown">
+									<li><a href="/fotografie">Foto</a></li>
+									<li><a href="/listaAlbum">Album</a></li>
+									<li><a href="/listaFotografi">Fotografi</a></li>
+								</ul></li>
+							<li><a href="about.html">Carrello</a></li>
+							<li class="active"><a href="/admin">Accedi</a></li>
+						</ul>
+					</nav>
+				</div>
 			</div>
-			<div class="col-10 col-md-8 d-none d-xl-block">
-				<nav
-					class="site-navigation position-relative text-right text-lg-center"
-					role="navigation">
+		</div>
+	</header>
 
-					<ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-						<li><a href="login.html">Home</a></li>
-						<li class="has-children"><a href="single.html">Album</a>
-							<ul class="dropdown">
-								<li><a href="#">Natura</a></li>
-								<li><a href="#">Ritratti</a></li>
-								<li><a href="#">Matrimonio</a></li>
-								<li class="has-children"><a href="#">Sub Menu</a>
-									<ul class="dropdown">
-										<li><a href="#">Menu One</a></li>
-										<li><a href="#">Menu Two</a></li>
-										<li><a href="#">Menu Three</a></li>
-									</ul></li>
-							</ul></li>
-						<li><a href="services.html">Fotografi</a></li>
-						<li><a href="about.html">Carrello</a></li>
-						<li class="active"><a href="/admin">Accedi</a></li>
-					</ul>
-				</nav>
-			</div>
-
-
-		</header>
 
 		<div class="site-blocks-cover overlay inner-page-cover"
 			style="background-image: url('images/hero_bg_3.jpg');"
@@ -94,7 +90,7 @@
 			<div class="container">
 				<div class="row align-items-center justify-content-center">
 					<div class="col-md-7 text-center" data-aos="fade-up">
-						<h1>Inserisci un fotografo</h1>
+						<h1>Inserisci un Fotografo</h1>
 					</div>
 				</div>
 			</div>
@@ -114,9 +110,9 @@
 
 
 							<div class="row text-center">
-								<form th:action="@{/inserimentoFotografo}" method="POST"
+								<form th:action="@{/inserisciFotografo}" method="POST"
 									th:object="${fotografo}">
-									<div class="col-md-6 mb-3 mb-md-0">
+									<div class="col-md-6 mb-3 mb-md-0 ">
 										<label class="text-black justify-content-center" for="nome">Nome</label><input
 											type="text" id="nome" name="nome" th:field="*{nome}">
 									</div>
@@ -126,8 +122,8 @@
 									</div>
 									<br>
 									<div class="col-md-6">
-										<label class="text-black " for="Cognome">Cognome</label><input
-											type="text" id="cognome" name="cognome" th:field="*{cognome}">
+										<label class="text-black " for="idFotografo">Cognome</label><input type="text" id="cognome" name="cognome"
+											th:field="*{cognome}">
 									</div>
 									<div>
 										<p class="error" th:if="${#fields.hasErrors('cognome')}"
@@ -144,12 +140,44 @@
 								</form>
 							</div>
 
+
 						</div>
 					</div>
 				</div>
 
 			</div>
 		</div>
-	</div>
+
+
+
+
+
+
+
+
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/bootstrap-datepicker.min.js"></script>
+	<script src="js/swiper.min.js"></script>
+	<script src="js/aos.js"></script>
+
+	<script src="js/picturefill.min.js"></script>
+	<script src="js/lightgallery-all.min.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>
+
+	<script src="js/main.js"></script>
+
+	<script>
+
+
+  </script>
 </body>
 </html>

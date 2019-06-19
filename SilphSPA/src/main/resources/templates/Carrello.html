@@ -48,6 +48,10 @@
 
 
 	<header class="site-navbar py-3" role="banner">
+
+
+
+
 		<div class="container">
 			<div class="row align-items-center">
 
@@ -79,63 +83,58 @@
 		</div>
 	</header>
 
-	<div class="site-section" data-aos="fade">
-		<div class="container-fluid">
 
-			<div class="row justify-content-center">
-				<div class="col-md-7">
-					<div class="row mb-5">
-						<div class="col-12 ">
-							<h2 class="site-section-heading text-center">Ricerca</h2>
-						</div>
-					</div>
-					<div class="site-section text-center">
-						<div class="p-3 mb-2 bg-primary text-white site-block-feature-7"
-							style="curson: pointer;"
-							onclick="window.location='/fotografoNomeCognome';">
-							<h3 class="text-white h4">Ricerca per Nome e Cognome</h3>
-						</div>
-						<br>
-						<div class="p-3 mb-2 bg-primary text-white site-block-feature-7"
-							style="curson: pointer;"
-							onclick="window.location='/fotografoPerId';">
-							<h3 class="text-white h4">Ricerca Per Id</h3>
-						</div>
-						<br>
-						<div class="p-3 mb-2 bg-danger text-white site-block-feature-7"
-							style="curson: pointer;" onclick="window.location='/admin';">
-							<h3 class="text-white h4">Torna indietro</h3>
-						</div>
-					</div>
+	<div class="site-blocks-cover overlay inner-page-cover"
+		style="background-image: url('images/hero_bg_1.jpg');"
+		data-stellar-background-ratio="0.5">
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-md-7 text-center" data-aos="fade-up">
+					<h1>Carrello</h1>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/jquery-migrate-3.0.1.min.js"></script>
-	<script src="js/jquery-ui.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.stellar.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/bootstrap-datepicker.min.js"></script>
-	<script src="js/swiper.min.js"></script>
-	<script src="js/aos.js"></script>
-
-	<script src="js/picturefill.min.js"></script>
-	<script src="js/lightgallery-all.min.js"></script>
-	<script src="js/jquery.mousewheel.min.js"></script>
-
-	<script src="js/main.js"></script>
-
-	<script>
-		$(document).ready(function() {
-			$('#lightgallery').lightGallery();
-		});
-	</script>
 
 
+
+	<div class="site-section">
+		<div class="container">
+			<div class="row text-center justify-content-center mb-5">
+				<div class="col-12 " data-aos="fade-up">
+					<h2 class="site-section-heading text-center"></h2>
+				</div>
+			</div>
+			<div th:each="foto: ${carrello.foto}">
+				<div class="row align-items-center justify-content-center"></div>
+			</div>
+		</div>
+	</div>
+
+
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/jquery-migrate-3.0.1.min.js"></script>
+		<script src="js/jquery-ui.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/jquery.stellar.min.js"></script>
+		<script src="js/jquery.countdown.min.js"></script>
+		<script src="js/jquery.magnific-popup.min.js"></script>
+		<script src="js/bootstrap-datepicker.min.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script src="js/aos.js"></script>
+
+		<script src="js/picturefill.min.js"></script>
+		<script src="js/lightgallery-all.min.js"></script>
+		<script src="js/jquery.mousewheel.min.js"></script>
+
+		<script src="js/main.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$('#lightgallery').lightGallery();
+			});
+		</script>
 </body>
 </html>

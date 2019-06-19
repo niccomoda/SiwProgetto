@@ -31,8 +31,16 @@ public class FotoService {
 		}
 	}
 	
+	@Transactional
+	public List<Foto> tutteLeFoto(){
+		return (List<Foto>)this.fotoRepository.findAll();
+	}
 	
 	
+	@Transactional
+	public List<Foto> trovaFotoPerNome(String nome){
+		return this.fotoRepository.findByNome(nome);
+	}
 	
 	
 }

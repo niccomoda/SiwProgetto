@@ -1,5 +1,8 @@
 package it.uniroma3.BiagioniModanese.SilphSPA.Controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,5 +98,50 @@ public class FotoController {
 		return "inserimentoFoto.html";
 	}
 	
+	@RequestMapping(value = "/risultatiFotoNome" , method = RequestMethod.POST)
+	public String ricercaFotoPerNome(@Valid @ModelAttribute("stringaRicerca") StringaRicerca sr, Model model, BindingResult bindingResult) {
+		List<Foto> l;
+		
+		l = this.fotoService.trovaFotoPerNome(sr.getS1());
+		
+		if(!l.isEmpty()) {
+			model.addAttribute("fotografie", l);
+			return "fotografie.html";
+		}
+		else {
+			return "ricercaFotoNome.html";
+		}
+	}
+	
+	@RequestMapping(value = "/cercaFotoPerId" , method = RequestMethod.POST)
+	public String ricercaFotoPerId(@Valid @ModelAttribute("stringaRicerca") StringaRicerca sr, Model model, BindingResult bindingResult) {
+		
+		Long id = 0L;
+		
+		try {
+			id = Long.parseLong(sr.getS1());
+		}catch (NumberFormatException e) {
+			return "ricercaFotoPerId";
+		}
+		
+		Foto foto = this.fotoService.trovaFotoPerId(id);
+		
+		if(foto==null) {
+			return "ricercaFotoPerId";
+		}
+		else {
+			model.addAttribute("foto", foto);
+			return "risultatoFotoPerId";
+		}
+		
+	}
+	
+	@RequestMapping(value = "/fotografie")
+	public String stampaTutteFotografie(Model model) {
+		List<Foto> foto;
+		foto = this.fotoService.tutteLeFoto();
+		model.addAttribute("fotografie", foto);
+		return "fotografie.html";
+	}
 	
 }

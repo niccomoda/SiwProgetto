@@ -67,20 +67,13 @@
 						role="navigation">
 
 						<ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-							<li><a href="login.html">Home</a></li>
-							<li class="has-children"><a href="single.html">Fotografi</a>
+							<li class="active"><a href="/">Home</a></li>
+							<li class="has-children"><a href="single.html">Categorie</a>
 								<ul class="dropdown">
-									<li><a href="#">Natura</a></li>
-									<li><a href="#">Ritratti</a></li>
-									<li><a href="#">Matrimonio</a></li>
-									<li class="has-children"><a href="#">Sub Menu</a>
-										<ul class="dropdown">
-											<li><a href="#">Menu One</a></li>
-											<li><a href="#">Menu Two</a></li>
-											<li><a href="#">Menu Three</a></li>
-										</ul></li>
+									<li><a href="/fotografie">Foto</a></li>
+									<li><a href="/listaAlbum">Album</a></li>
+									<li><a href="/listaFotografi">Fotografi</a></li>
 								</ul></li>
-							<li><a href="services.html">Album</a></li>
 							<li><a href="about.html">Carrello</a></li>
 							<li class="active"><a href="/admin">Accedi</a></li>
 						</ul>
@@ -88,9 +81,8 @@
 				</div>
 			</div>
 		</div>
-
-
 	</header>
+
 
 	<div class="site-blocks-cover overlay inner-page-cover"
 		style="background-image: url('images/hero_bg_3.jpg');"
@@ -118,21 +110,19 @@
 
 
 
-							<div class=" form-group text-center justify-content-center ">
+							<div class=" col-md-9 mb-7 justify-content-center ">
 								<form th:action="@{/risultatiAlbumNome}"
 									method="POST" th:object="${stringaRicerca}">
 									<p class = "error" th:if = "${#fields.hasErrors('s1')}" th:errors = "*{s1}">
-									<div class="row form-group">
+									<div class="row justify-content-center">
 										<div class="col-md-6 mb-3 mb-md-0">
 											<label class="text-black" for="nome">Nome</label> <input
 												type="text" id="nome" th:field = "*{s1}" class="form-control">
 										</div>
 									</div>
 									<br>
-
-									<div class="row form-group ">
-										<div class="col-md-12">
-											<br>
+									<div class="row text-center justify-content-center ">
+										<div class="col-md-12 justify-content-center">
 											<button type="submit"
 												class="btn btn-primary py-2 px-4 text-white">Cerca</button>
 										</div>
