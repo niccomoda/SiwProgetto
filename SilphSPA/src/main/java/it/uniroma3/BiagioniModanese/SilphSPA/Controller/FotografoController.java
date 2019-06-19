@@ -114,6 +114,12 @@ public class FotografoController {
 		
 	}
 	
+	@RequestMapping(value = "/mostrafotografo/{id}", method=RequestMethod.GET)
+	public String mostraFotografo(@ModelAttribute("id") Long id, Model model) {
+		model.addAttribute("fotografo", this.fotografoService.trovaFotografoPerId(id));
+		return "mostraFotografo.html";
+	}
+	
 	
 	
 	

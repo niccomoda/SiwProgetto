@@ -126,4 +126,12 @@ public class AlbumController {
 		model.addAttribute("fotos", foto);
 		return "mostraFotoAlbum.html";
 	}
+	
+	@RequestMapping(value = "/albums")
+	public String mostraTuttiAlbum(Model model) {
+		List<Album> albums;
+		albums = this.albumService.tuttiAlbum();
+		model.addAttribute("albums", albums);
+		return "albums.html";
+	}
 }
