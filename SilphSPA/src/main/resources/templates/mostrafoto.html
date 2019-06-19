@@ -56,9 +56,10 @@
 							<h2 class="site-section-heading text-center">Foto</h2>
 						</div>
 					</div>
-					<img th:src="${foto.uri}" width="middle"> <br> <br>
+					<img th:src="${foto.uri}" width="720" height="480"> <br> <br>
+					<span th:text = "${foto.nome}" style="color: black; font-family: cursive; font-size: 160%;"></span>
 					<div class="p-3 mb-2 bg-primary text-white site-block-feature-7 text-center"
-						style="curson: pointer;">
+						style="curson: pointer;"> 
 						<a th:href="@{'/fotoCarrello/' + ${foto.id}}" style="color: black">Aggiungi al
 							carrello</a>
 					</div>

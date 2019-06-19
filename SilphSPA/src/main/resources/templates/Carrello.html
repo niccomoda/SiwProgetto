@@ -105,41 +105,53 @@
 					<h2 class="site-section-heading text-center"></h2>
 				</div>
 			</div>
-			<ul>
-			<li th:each="foto: ${carrello.foto}">
-          <img th:src="${foto.uri}" th:alt="${foto.nome}" class="img-fluid">
-          <a th:href="@{'/eliminaFoto/' + ${foto.id}}">Togli dal carrello</a>
-				<div class="row align-items-center justify-content-center"></div>
-			</li>
+			<ul style="list-style: none;">
+				<li th:each="foto: ${carrello.foto}"><img th:src="${foto.uri}"
+					th:alt="${foto.nome}" class="img-fluid" width="160" height="80">
+					<br> <br>
+					<div
+						class="p-3 mb-2 bg-primary text-black site-block-feature-7 text-center"
+						style="curson: pointer; width: 20%;">
+						<a th:href="@{'/eliminaFoto/' + ${foto.id}}" style="color: white;">Togli dal
+							carrello</a>
+					</div> <br>
+				<br>
+					<div class="row align-items-center justify-content-center"></div></li>
 			</ul>
-			<a th:href="@{'/inviaRichiesta'}">Invia una Richiesta</a>
+			<div class="text-center">
+				<div
+					class="p-3 mb-2 bg-primary text-black site-block-feature-7 text-center"
+					style="curson: pointer;">
+					<a th:href="@{'/inviaRichiesta'}" style="color: white;">Invia una Richiesta</a>
+				</div>
+			</div>
 		</div>
 	</div>
 
 
-		<script src="../js/jquery-3.3.1.min.js"></script>
-		<script src="../js/jquery-migrate-3.0.1.min.js"></script>
-		<script src="../js/jquery-ui.js"></script>
-		<script src="../js/popper.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
-		<script src="../js/owl.carousel.min.js"></script>
-		<script src="../js/jquery.stellar.min.js"></script>
-		<script src="../js/jquery.countdown.min.js"></script>
-		<script src="../js/jquery.magnific-popup.min.js"></script>
-		<script src="../js/bootstrap-datepicker.min.js"></script>
-		<script src="../js/swiper.min.js"></script>
-		<script src="../js/aos.js"></script>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="../js/jquery-ui.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/owl.carousel.min.js"></script>
+	<script src="../js/jquery.stellar.min.js"></script>
+	<script src="../js/jquery.countdown.min.js"></script>
+	<script src="../js/jquery.magnific-popup.min.js"></script>
+	<script src="../js/bootstrap-datepicker.min.js"></script>
+	<script src="../js/swiper.min.js"></script>
+	<script src="../js/aos.js"></script>
 
-		<script src="../js/picturefill.min.js"></script>
-		<script src="../js/lightgallery-all.min.js"></script>
-		<script src="../js/jquery.mousewheel.min.js"></script>
+	<script src="../js/picturefill.min.js"></script>
+	<script src="../js/lightgallery-all.min.js"></script>
+	<script src="../js/jquery.mousewheel.min.js"></script>
 
-		<script src="../js/main.js"></script>
+	<script src="../js/main.js"></script>
 
-		<script>
-			$(document).ready(function() {
-				$('#lightgallery').lightGallery();
-			});
-		</script>
+	<script>
+		$(document).ready(function() {
+			$('#lightgallery').lightGallery();
+		});
+	</script>
 </body>
 </html>

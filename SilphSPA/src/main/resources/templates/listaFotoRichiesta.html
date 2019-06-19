@@ -6,9 +6,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<ul>
+<ul style="list-style: none">
 <li th:each="foto : ${richiesta.foto}">
-<img th:src="${foto.uri}"> 
+<img th:src="${foto.uri}"><span th:text ="${foto.fotografo.nome}"></span> <span th:text = "${foto.fotografo.cognome}"></span> 
 </li>
 </ul>
 </body>
