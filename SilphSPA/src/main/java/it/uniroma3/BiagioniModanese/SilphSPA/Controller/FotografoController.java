@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.Fotografo;
 import it.uniroma3.BiagioniModanese.SilphSPA.Model.StringaRicerca;
+import it.uniroma3.BiagioniModanese.SilphSPA.Service.FotoService;
 import it.uniroma3.BiagioniModanese.SilphSPA.Service.FotografoService;
 import it.uniroma3.BiagioniModanese.SilphSPA.Service.FotografoValidator;
 
@@ -25,6 +26,9 @@ public class FotografoController {
 	
 	@Autowired
 	private FotografoValidator fotografoValidator;
+	
+	@Autowired
+	private FotoService fotoService;
 	
 	@RequestMapping(value = "/inserisciFotografo", method = RequestMethod.POST)
 	public String newFotografo(@Valid @ModelAttribute("fotografo") Fotografo fotografo, Model model, BindingResult bindingResult) {
@@ -118,6 +122,13 @@ public class FotografoController {
 	public String mostraFotografo(@ModelAttribute("id") Long id, Model model) {
 		model.addAttribute("fotografo", this.fotografoService.trovaFotografoPerId(id));
 		return "mostraFotografo.html";
+	}
+	
+	@RequestMapping(value = "/")
+	public String homePage(Model model) {
+		model.addAttribute("fotografi", this.fotografoService.tuttiFotografi());
+		model.addAttribute("fotos", this.fotoService.tutteLeFoto());
+		return "index.html";
 	}
 	
 	

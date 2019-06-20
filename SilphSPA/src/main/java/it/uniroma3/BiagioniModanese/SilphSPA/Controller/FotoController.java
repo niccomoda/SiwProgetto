@@ -100,6 +100,7 @@ public class FotoController {
 		
 		if(!l.isEmpty()) {
 			model.addAttribute("fotografie", l);
+			model.addAttribute("user", "ADMIN");
 			return "fotografie.html";
 		}
 		else {
