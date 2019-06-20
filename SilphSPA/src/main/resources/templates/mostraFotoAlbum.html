@@ -10,7 +10,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i,400,700"
 	rel="stylesheet">
-<link rel="stylesheet" href="../fonts/icomoon/style.css">
+<link rel="stylesheet" href="fonts/icomoon/style.css">
 
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/magnific-popup.css">
@@ -45,34 +45,38 @@
 			<div class="site-mobile-menu-body"></div>
 		</div>
 	</div>
-	
+
+
 	<header class="site-navbar py-3" role="banner">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-6 col-xl-2">
-            <h1 class="mb-0"><a href="/" class="text-black h2 mb-0">Silph<span class="text-primary">.</span></a></h1>
-          </div>
-          <div class="col-10 col-md-8 d-none d-xl-block">
-            <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
-              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li class="active"><a href="/">Home</a></li>
-                <li class="has-children">
-                  <a>Categorie</a>
-                  <ul class="dropdown">
-                    <li><a href="/fotografie">Foto</a></li>
-                    <li><a href="/albums">Album</a></li>
-                    <li><a href="/fotografi">Fotografi</a></li>
-                  </ul>
-                </li>
-                <li><a href="/mostraCarrello">Carrello</a></li>
-               <li class="active"><a href="/admin">StaffOnly</a></li>
-              </ul>
-            </nav>
-          </div>
-          </div>
-          </div>   
-    </header>
-	
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-6 col-xl-2">
+					<h1 class="mb-0">
+						<a href="/" class="text-black h2 mb-0">Silph<span
+							class="text-primary">.</span></a>
+					</h1>
+				</div>
+				<div class="col-10 col-md-8 d-none d-xl-block">
+					<nav
+						class="site-navigation position-relative text-right text-lg-center"
+						role="navigation">
+						<ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+							<li class="active"><a href="/">Home</a></li>
+							<li class="has-children"><a>Categorie</a>
+								<ul class="dropdown">
+									<li><a href="/fotografie">Foto</a></li>
+									<li><a href="/albums">Album</a></li>
+									<li><a href="/fotografi">Fotografi</a></li>
+								</ul></li>
+							<li><a href="/mostraCarrello">Carrello</a></li>
+							<li class="active"><a href="/admin">StaffOnly</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+
 
 	<div class="site-section" data-aos="fade">
 		<div class="container-fluid">
@@ -87,15 +91,17 @@
 					<br>
 					<br>
 					<ul style="list-style: none">
-					<li th:each="foto : ${fotos}"> <br> <br> <img th:src="${foto.uri}" width="260" height="200">
-					<span th:text="'    ' + ${foto.nome}" style="color: black; font-family: cursive; font-size: 160%;" > </span>
-							<br>
-							<span th:text="'Fotografo:'" style="color: black; font-family: cursive; font-size: 160%; width: 100%;"></span>
-							<br>
-							<span th:text="${foto.fotografo.nome} + ' ' + ${foto.fotografo.cognome}" style="color: blue; font-family: cursive; font-size: 160%; width: 100%;"> </span>
-					<br>
-					<br>
-					</li>
+						<li th:each="foto : ${fotos}"><img
+							th:src="${foto.uri}" width="260" height="200"> <br> <span
+							th:text="'    ' + ${foto.nome}"
+							style="color: black; font-family: cursive; font-size: 160%;">
+						</span> <br> <span th:text="'Fotografo:'"
+							style="color: black; font-family: cursive; font-size: 160%; width: 100%;"></span>
+							<br>  <span
+							th:text="${foto.fotografo.nome} + ' ' + ${foto.fotografo.cognome}"
+							style="color: blue; font-family: cursive; font-size: 160%; width: 100%;">
+						</span> <br> <br>
+						</li>
 					</ul>
 					<div class="p-3 mb-2 bg-primary text-white site-block-feature-7"
 						style="curson: pointer;" onclick="window.location='/albums';">

@@ -1,6 +1,5 @@
 package it.uniroma3.BiagioniModanese.SilphSPA.Controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -38,7 +38,7 @@ public class FotoController {
 	//proviamo il push
 	@RequestMapping(value="/inserimentoFoto", method= RequestMethod.POST)
 	public String newFoto(@Valid @ModelAttribute("fotoForm") FotoForm fotoForm, Model model, BindingResult bindingResult) {
-		//this.fotoFormValidator.validate(fotoForm, bindingResult);
+		this.fotoFormValidator.validate(fotoForm, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			Long id1 = null;
 			Long id2 = null;
@@ -140,7 +140,7 @@ public class FotoController {
 	}
 	
 	@RequestMapping(value = "/mostrafoto/{id}", method=RequestMethod.GET)
-	public String mostraFoto(@ModelAttribute("id") Long id, Model model) {
+	public String mostraFoto(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("foto", this.fotoService.trovaFotoPerId(id));
 		return "mostrafoto.html";
 	}

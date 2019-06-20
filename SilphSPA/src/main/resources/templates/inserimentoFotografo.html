@@ -121,6 +121,14 @@
 										<p class="error" th:if="${#fields.hasErrors('cognome')}"
 											th:errors="*{cognome}"></p>
 									</div>
+									<div class="col-md-6">
+										<label class="text-black " for="fotoProfilo">Foto Profilo</label><input type="text" id="fotoProfilo" name="fotoProfilo"
+											th:field="*{fotoProfilo}">
+									</div>
+									<div>
+										<p class="error" th:if="${#fields.hasErrors('fotoProfilo')}"
+											th:errors="*{fotoProfilo}"></p>
+									</div>
 									
 
 

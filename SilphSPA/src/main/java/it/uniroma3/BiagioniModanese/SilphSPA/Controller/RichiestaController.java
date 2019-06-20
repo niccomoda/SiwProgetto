@@ -25,6 +25,8 @@ public class RichiestaController {
 
 	@Autowired
 	private RichiestaService richiestaService;
+	
+	@Autowired
 	private RichiestaValidator richiestaValidator;
 	
 	@RequestMapping(value = "/inviaRichiesta")
@@ -34,8 +36,8 @@ public class RichiestaController {
 	}
 	
 	@RequestMapping(value="/nuovaRichiesta", method=RequestMethod.POST)
-	public String newRichiesta(@Valid@ModelAttribute("richiesta") Richiesta richiesta, Model model, BindingResult bindingResult) {
-		//this.richiestaValidator.validate(richiesta, bindingResult);
+	public String newRichiesta(@Valid @ModelAttribute("richiesta") Richiesta richiesta, Model model, BindingResult bindingResult) {
+		this.richiestaValidator.validate(richiesta, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			Carrello c = Carrello.getCarrello();
 			Set<Foto> foto = c.getFoto();

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -36,7 +37,7 @@ public class AlbumController {
 
 	@RequestMapping(value = "/inserisciAlbum", method = RequestMethod.POST)
 	public String newAlbum(@Valid @ModelAttribute("albumForm") AlbumForm albumForm, Model model, BindingResult bindingResult) {
-		//this.albumFormValidator.validate(albumForm, bindingResult);
+		this.albumFormValidator.validate(albumForm, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			Long id = null;
 			try{id = Long.parseLong(albumForm.getIdFotografo());}
@@ -120,7 +121,7 @@ public class AlbumController {
 	}
 	
 	@RequestMapping(value="/mostraAlbum/{id}")
-	public String mostraFotoAlbum(@ModelAttribute ("id")Long id, Model model) {
+	public String mostraFotoAlbum(@PathVariable ("id")Long id, Model model) {
 		Album a = this.albumService.trovaAlbumPerId(id);
 		List<Foto> foto = a.getFoto();
 		model.addAttribute("fotos", foto);
@@ -130,7 +131,7 @@ public class AlbumController {
 	@RequestMapping(value = "/albums")
 	public String mostraTuttiAlbum(Model model) {
 		List<Album> albums;
-		albums = this.albumService.tuttiAlbum();
+		albums = this.albumService.mostraTuttiAlbum();
 		model.addAttribute("albums", albums);
 		return "albums.html";
 	}

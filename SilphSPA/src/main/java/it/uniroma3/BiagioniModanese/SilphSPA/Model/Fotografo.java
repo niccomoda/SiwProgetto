@@ -7,16 +7,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Fotografo {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Long id;
-	//@NotEmpty(message="Campo Obbligatorio")
 	private String nome;
-	//@NotEmpty(message="Campo Obbligatorio")
 	private String cognome;
 	private String fotoProfilo;
 	
@@ -26,6 +23,14 @@ public class Fotografo {
 	@OneToMany(mappedBy = "fotografo")
 	List<Foto> foto;
 
+	public Fotografo() {
+		
+	}
+	public Fotografo(String nome, String cognome, String fotoProfilo) {
+		this.nome = nome;
+		this.cognome = cognome;
+		this.fotoProfilo = fotoProfilo;
+	}
 	public String getNome() {
 		return nome;
 	}

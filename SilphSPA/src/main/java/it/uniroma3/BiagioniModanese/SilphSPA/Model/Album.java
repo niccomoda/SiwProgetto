@@ -21,8 +21,16 @@ public class Album {
 	@ManyToOne
 	private Fotografo fotografo;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "album")
 	private List<Foto> foto;
+	
+	public Album (String nome, Fotografo fotografo) {
+		this.nome = nome;
+		this.fotografo = fotografo;
+	}
+	public Album() {
+		
+	}
 
 	public String getNome() {
 		return nome;

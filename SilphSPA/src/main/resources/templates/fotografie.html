@@ -93,8 +93,7 @@
 
 			<div class="row no-gutters">
 				<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 item">
-
-					<div th:each="foto : ${fotografie}">
+						<div th:each="foto : ${fotografie}">
 						<a th:href="@{'/mostrafoto/' + ${foto.id}}"><img
 							th:src="${foto.uri}" width="480"
 							height="260"></a>

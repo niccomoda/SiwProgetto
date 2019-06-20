@@ -1,6 +1,8 @@
 package it.uniroma3.BiagioniModanese.SilphSPA.Service;
 
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,10 @@ public class StaffService {
 		
 	}
 	
+	@Transactional
+	public List<Staff> tuttiGliStaff(){
+		return (List<Staff>)staffRepository.findAll();
+	}
 	@Transactional 
 	public Staff inserisci(Staff staff) {
 		return staffRepository.save(staff);

@@ -94,7 +94,7 @@
         <span th:text="${album.fotografo.nome}"></span>
          <span th:text="${album.fotografo.cognome}"></span>
          <img th:src="${album.fotografo.fotoProfilo}">
-          <a th:href="@{'/mostraAlbum/' + ${album.id}}" th:text="${album.nome}"></a>
+          Nome Album:<a th:href="@{'/mostraAlbum/' + ${album.id}}" th:text="${album.nome}"></a>
           <br> <br>
         </li>
         </ul>

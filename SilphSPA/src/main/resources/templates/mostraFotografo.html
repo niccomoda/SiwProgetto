@@ -91,9 +91,9 @@
 					<span th:text="${fotografo.cognome}"
 						style="color: black; font-family: cursive; font-size: 160%;"></span>
 					<br> <br>
-					<ul>
-						<li><a th:each="album : ${fotografo.album}"><span
-								th:text="${album.nome}"></span></a></li>
+					<ul style="list-style: none">
+						<li><a th:each="album : ${fotografo.album}">Album: <span
+								th:text="${album.nome} + ' ' + ' ' "></span><br></a></li>
 					</ul>
 					<br> <br>
 					<div class="p-3 mb-2 bg-primary text-white site-block-feature-7"

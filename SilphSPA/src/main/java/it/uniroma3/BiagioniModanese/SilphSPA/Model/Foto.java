@@ -23,6 +23,16 @@ public class Foto {
 	@ManyToOne
 	private Fotografo fotografo;
 
+	public Foto() {
+		
+	}
+	
+	public Foto(String nome, String uri, Album album, Fotografo fotografo) {
+		this.nome = nome;
+		this.uri = uri;
+		this.album = album;
+		this.fotografo = fotografo;
+	}
 	public Long getId() {
 		return id;
 	}
